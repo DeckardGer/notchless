@@ -1,0 +1,16 @@
+name: container
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  works-on-anyones-machine:
+    name: Works on anyone's machine (this one, at least)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Notchless for a machine with no notch
+        run: docker build -t notchless .
+      - name: Remove a notch this machine does not have
+        run: docker run --rm notchless

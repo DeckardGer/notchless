@@ -28,6 +28,21 @@ The app is ad-hoc signed. If you download a build from Releases instead of build
 
 No notch? Notchless draws one for you, then removes it.
 
+## Docker
+
+Works on anyone's machine.
+
+```sh
+git clone https://github.com/DeckardGer/notchless.git
+cd notchless
+docker build -t notchless .
+docker run -it notchless
+```
+
+The image ships the Swift toolchain, so the build fails for the real reason (`no such module 'AppKit'`), and Notchless falls back to drawing a notch in your terminal and removing it there. The container can't see your screen, your menu bar or your notch. On camera, nothing happens. In real life, nothing happens either.
+
+Pick a method and a strength, same as the app: `docker run -it notchless --style genie --strength nuclear`.
+
 ## Features
 
 - Three removal methods: Retract, Genie and Fall Off
